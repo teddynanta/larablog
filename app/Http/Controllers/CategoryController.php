@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
 use Illuminate\Http\Request;
+use App\Models\Category;
 
-class PostController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,11 +14,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('home', [
-            "title" => "Home",
-            "name" => "goBlog",
-            "posts" => Post::all()
-        ]);
+        //
     }
 
     /**
@@ -48,11 +44,12 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $slug)
+    public function show(Category $category)
     {
-        return view('post', [
-            "title" => "Post",
-            "post" => $slug
+        return view('category', [
+            'title' => $category->category,
+            'posts' => $category->posts,
+            'category' => $category->category
         ]);
     }
 
