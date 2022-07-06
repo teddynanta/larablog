@@ -1,10 +1,12 @@
 <?php
 
+use App\Models\Post;
+use App\Models\User;
+use App\Models\Category;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CategoryController;
-use App\Models\Category;
-use App\Models\Post;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +33,13 @@ Route::get('/categories', function(){
     ]);
 });
 
+Route::get('/authors', function(){
+    return view('authors', [
+        "title" => "Authors",
+        'authors' => User::all()
+    ]);
+});
+
 
 Route::get('/about', function(){
     return view('about', [
@@ -41,3 +50,5 @@ Route::get('/about', function(){
 Route::get('/post/{slug:slug}', [PostController::class, 'show']);
 
 Route::get('/categories/{category:slug}', [CategoryController::class, 'show']);
+
+Route::get('/author/{user:id}', [UserController::class, 'show']);
