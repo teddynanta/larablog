@@ -51,4 +51,4 @@ Route::get('/post/{slug:slug}', [PostController::class, 'show']);
 
 Route::get('/categories/{category:slug}', [CategoryController::class, 'show']);
 
-Route::get('/author/{user:id}', [UserController::class, 'show']);
+Route::get('/authors/{user:id}', [UserController::class, 'show']);
