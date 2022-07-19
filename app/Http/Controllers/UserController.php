@@ -11,7 +11,16 @@ class UserController extends Controller
     {
         return view('home', [
             'posts' => $user->posts->load('user', 'category'),
+            'active' => 'authors',
             'title' => 'Post by : ' . $user->name
+        ]);
+    }
+
+    public function index(){
+        return view('authors', [
+            'active' => 'authors',
+            'title' => 'Authors',
+            'contents' => User::all()
         ]);
     }
 }

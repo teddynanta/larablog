@@ -1,18 +1,25 @@
-
+{{-- @dd($contents) --}}
 @extends('layouts.main')
 
 @section('container')
     <h1 class="mb-5">List of all categories</h1>
 
 
-@foreach ($categories as $category)
-<ul>
-    <li>
-        <h2><a href="/categories/{{ $category->slug }}" class="text-decoration-none">{{ $category->category }}</a></h2>
-    </li>
-</ul>
-@endforeach
-
-
-
+<div class="container">
+    <div class="row">
+        @foreach ($contents as $content)
+        {{-- @dd($content) --}}
+            <div class="col-md-4 text-center mb-5">
+                <div class="card" style="width: 18rem;">
+                    <img src="https://picsum.photos/seed/{{ $content->slug }}/500/500" class="card-img-top" alt="{{ $content->category }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $content->category }}</h5>
+                        <p class="card-text">Have {{ $content->posts->count() }} posts.</p>
+                        <a href="/categories/{{ $content->slug }}" class="btn btn-primary btn-sm">See Post</a>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    </div>
+</div>
 @endsection

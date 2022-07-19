@@ -19,7 +19,7 @@ class PostFactory extends Factory
             'category_id' => mt_rand(1,3),
             'slug' => $this->faker->slug(mt_rand(2, 6)),
             'excerpt' => $this->faker->paragraph(),
-            'content' => $this->faker->paragraph(mt_rand(10,25))
+            'content' => '<p>' . implode('</p><p>', $this->faker->paragraphs(mt_rand(3, 5))) . '</p>'
         ];
     }
 }

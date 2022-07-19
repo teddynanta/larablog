@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
 
         Post::factory(10)->create();
 
-        Category::factory(3)->create();
+        // Category::factory()->create();
 
         // User::create([
         //     'name' => 'Teddy Nanta',
@@ -41,35 +41,35 @@ class DatabaseSeeder extends Seeder
         // ]);
             
 
-        // Category::create([
-        //     'category' => 'Life',
-        //     'slug' => 'life'
-        // ]);
+        Category::create([
+            'category' => 'Life',
+            'slug' => 'life'
+        ]);
             
-        // Category::create([
-        //     'category' => 'Gaming',
-        //     'slug' => 'gaming'
-        // ]);
+        Category::create([
+            'category' => 'Gaming',
+            'slug' => 'gaming'
+        ]);
             
-        // Category::create([
-        //     'category' => 'School Life',
-        //     'slug' => 'school-life'
-        // ]);
+        Category::create([
+            'category' => 'School Life',
+            'slug' => 'school-life'
+        ]);
             
-        // Category::create([
-        //     'category' => 'Love and Relationship',
-        //     'slug' => 'love-and-relationship'
-        // ]);
+        Category::create([
+            'category' => 'Love and Relationship',
+            'slug' => 'love-and-relationship'
+        ]);
             
-        // Category::create([
-        //     'category' => 'Financial',
-        //     'slug' => 'financial'
-        // ]);
+        Category::create([
+            'category' => 'Financial',
+            'slug' => 'financial'
+        ]);
             
-        // Category::create([
-        //     'category' => 'Work',
-        //     'slug' => 'work'
-        // ]);
+        Category::create([
+            'category' => 'Work',
+            'slug' => 'work'
+        ]);
 
         
         // Post::create([

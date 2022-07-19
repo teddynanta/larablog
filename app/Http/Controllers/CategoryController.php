@@ -14,7 +14,11 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        return view('categories', [
+            'active' => 'categories',
+            'title' => 'Categories',
+            'contents' => Category::all()
+        ]);
     }
 
     /**
@@ -48,6 +52,7 @@ class CategoryController extends Controller
     {
         return view('home', [
             'title' => 'Post category : ' . $category->category,
+            'active' => 'categories',
             'posts' => $category->posts->load('user', 'category'),
         ]);
     }

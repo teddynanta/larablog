@@ -25,27 +25,10 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', [PostController::class, 'index']);
 
+Route::get('/categories', [CategoryController::class, 'index']);
 
-Route::get('/categories', function(){
-    return view('categories', [
-        "title" => "Categories",
-        'categories' => Category::all()
-    ]);
-});
+Route::get('/authors', [UserController::class, 'index']);
 
-Route::get('/authors', function(){
-    return view('authors', [
-        "title" => "Authors",
-        'authors' => User::all()
-    ]);
-});
-
-
-Route::get('/about', function(){
-    return view('about', [
-        "title" => "About"
-    ]);
-});
 
 Route::get('/post/{slug:slug}', [PostController::class, 'show']);
 
