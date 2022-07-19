@@ -9,10 +9,9 @@ class UserController extends Controller
 {
     public function show(User $user)
     {
-        return view('author', [
-            'title' => $user->name,
-            'posts' => $user->posts,
-            'name' => $user->name
+        return view('home', [
+            'posts' => $user->posts->load('user', 'category'),
+            'title' => 'Post by : ' . $user->name
         ]);
     }
 }

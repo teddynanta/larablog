@@ -46,10 +46,9 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        return view('category', [
-            'title' => $category->category,
-            'posts' => $category->posts,
-            'category' => $category->category
+        return view('home', [
+            'title' => 'Post category : ' . $category->category,
+            'posts' => $category->posts->load('user', 'category'),
         ]);
     }
 
