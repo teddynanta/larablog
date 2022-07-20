@@ -14,7 +14,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('categories', [
+        return view('lists', [
             'active' => 'categories',
             'title' => 'Categories',
             'contents' => Category::all()
@@ -48,15 +48,10 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show()
     {
-        return view('home', [
-            'title' => 'Post category : ' . $category->category,
-            'active' => 'categories',
-            'posts' => $category->posts->load('user', 'category'),
-        ]);
+        //
     }
-
     /**
      * Show the form for editing the specified resource.
      *
