@@ -5,6 +5,15 @@
 <div class="row justify-content-center mt-5">
     <div class="col-md-6">
 
+        @if (session()->has('success'))
+            
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+
+        @endif
+
         <main class="form-signin w-100 m-auto text-center">
             <form>
                 <img class="mb-4" src="/img/bug-fill.svg" alt="" width="72" height="57">
