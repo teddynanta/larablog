@@ -10,8 +10,27 @@
                 <a class="nav-link {{ ($active === "categories") ? 'fw-bold' : '' }}" href="/categories">Categories</a>
                 <a class="nav-link {{ ($active === "authors" ) ? 'fw-bold' : '' }}" href="/authors">Authors</a>
             </div>
+
             <div class="navbar-nav ms-auto">
-                <a href="/login" class="nav-link {{ ($active === "login" ) ? 'fw-bold' : '' }}""><i class="bi bi-box-arrow-in-right"></i> Login</a>
+                @auth                    
+                <div class="nav-item ms-auto dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Welcome, {{ auth()->user()->name }}
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/dashboard"><i class="bi bi-layout-text-sidebar-reverse"></i> Dashboard</a>
+                        <hr class="dropdown-divider">
+                        <form action="/logout" method="POST">
+                            @csrf
+                            <button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-right"></i> Logout</button>
+                        </form>
+                    </div>
+                </div>
+                @else
+                <div class="nav-item">
+                    <a href="/login" class="nav-link {{ ($active === "login" ) ? 'fw-bold' : '' }}""><i class="bi bi-box-arrow-in-right"></i> Login</a>
+                </div>
+                @endauth
             </div>
         </div>
     </div>
