@@ -18,7 +18,7 @@
                         Welcome, {{ auth()->user()->name }}
                     </a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="/dashboard"><i class="bi bi-layout-text-sidebar-reverse"></i> Dashboard</a>
+                        <a class="dropdown-item" href="/dashboard"><i class="bi bi-display"></i> Dashboard</a>
                         <hr class="dropdown-divider">
                         <form action="/logout" method="POST">
                             @csrf
