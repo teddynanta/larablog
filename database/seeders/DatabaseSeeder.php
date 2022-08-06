@@ -22,54 +22,57 @@ class DatabaseSeeder extends Seeder
 
         // Category::factory()->create();
 
-        // User::create([
-        //     'name' => 'Teddy Nanta',
-        //     'email' => 'teddynanta@gmail.com',
-        //     'password' => bcrypt('teddynanta')
-        // ]);
+        User::create([
+            'name' => 'Teddy Nanta',
+            'username' => 'teddynanta',
+            'email' => 'teddynanta@gmail.com',
+            'password' => bcrypt('teddynanta')
+        ]);
 
-        // User::create([
-        //     'name' => 'Niken Zakia Putri',
-        //     'email' => 'nikenzakiaputri@gmail.com',
-        //     'password' => bcrypt('nikenzakiaputri')
-        // ]);
+        User::create([
+            'name' => 'Niken Zakia Putri',
+            'username' => 'nikenzakiaputri',
+            'email' => 'nikenzakiaputri@gmail.com',
+            'password' => bcrypt('nikenzakiaputri')
+        ]);
             
-        // User::create([
-        //     'name' => 'Intan Mardini Putri',
-        //     'email' => 'intanmardiniputri@gmail.com',
-        //     'password' => bcrypt('intanmardiniputri')
-        // ]);
+        User::create([
+            'name' => 'Intan Mardini Putri',
+            'username' => 'intanmardiniputri',
+            'email' => 'intanmardiniputri@gmail.com',
+            'password' => bcrypt('intanmardiniputri')
+        ]);
             
 
-        // Category::create([
-        //     'category' => 'Life',
-        //     'slug' => 'life'
-        // ]);
+        Category::create([
+            'category' => 'Life',
+            'slug' => 'life'
+        ]);
             
-        // Category::create([
-        //     'category' => 'Gaming',
-        //     'slug' => 'gaming'
-        // ]);
+        Category::create([
+            'category' => 'Gaming',
+            'slug' => 'gaming'
+        ]);
             
-        // Category::create([
-        //     'category' => 'School Life',
-        //     'slug' => 'school-life'
-        // ]);
+        Category::create([
+            'category' => 'School Life',
+            'slug' => 'school-life'
+        ]);
             
-        // Category::create([
-        //     'category' => 'Love and Relationship',
-        //     'slug' => 'love-and-relationship'
-        // ]);
+        Category::create([
+            'category' => 'Love and Relationship',
+            'slug' => 'love-and-relationship'
+        ]);
             
-        // Category::create([
-        //     'category' => 'Financial',
-        //     'slug' => 'financial'
-        // ]);
+        Category::create([
+            'category' => 'Financial',
+            'slug' => 'financial'
+        ]);
             
-        // Category::create([
-        //     'category' => 'Work',
-        //     'slug' => 'work'
-        // ]);
+        Category::create([
+            'category' => 'Work',
+            'slug' => 'work'
+        ]);
 
         
         // Post::create([

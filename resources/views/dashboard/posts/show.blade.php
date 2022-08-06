@@ -12,7 +12,13 @@
         {{-- <a href="" class="badge bg-danger"><span data-feather="x-circle"></span></a> --}}
     </form>
     
-    <img src="https://picsum.photos/seed/{{ $post->category->slug }}/1200/400" class="img-fluid mt-3" alt="{{ $post->category->category }}">
+    @if ($post->image)
+        <div style="max-height: 1200px; overflow: hidden">
+            <img src="{{ asset('storage/' . $post->image)  }}" class="img-fluid mt-3" alt="{{ $post->category->category }}">
+        </div>
+    @else
+        <img src="https://picsum.photos/seed/{{ $post->category->slug }}/1200/400" class="img-fluid mt-3" alt="{{ $post->category->category }}">
+    @endif
 
     <article class="my-3">
 
