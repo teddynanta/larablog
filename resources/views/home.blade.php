@@ -25,7 +25,14 @@
 @if ($posts->count())
     <div class="card mb-3">
 
-        <img src="https://picsum.photos/seed/{{ $posts[0]->category->slug }}/1200/400" class="card-img-top" alt="{{ $posts[0]->category->category }}">
+        @if ($posts[0]->image)
+        <div style="max-height: 1200px; overflow: hidden" class="text-center">
+            <img src="{{ asset('storage/' . $posts[0]->image)  }}" class="img-fluid mt-3" alt="{{ $posts[0]->category->category }}">
+        </div>
+        @else
+            <img src="https://picsum.photos/seed/{{ $posts[0]->category->slug }}/1200/400" class="card-img-top" alt="{{ $posts[0]->category->category }}">
+        @endif
+
 
         <div class="card-body text-center">
             
@@ -51,7 +58,14 @@
                 <div class="col-md-4 mb-3">
                     <div class="card" style="width: 18rem;">
                         <div class="position-absolute px-3 py-1" style="background-color: rgba(0, 0, 0, 0.7)"><a class="text-decoration-none text-white" href="/?category={{ $post->category->slug }}">{{ $post->category->category }}</a></div>
-                        <img src="https://picsum.photos/seed/{{ $post->category->slug }}/500/500" class="card-img-top" alt="{{ $post->category->category }}">
+                        @if ($post->image)
+                        <div style="max-height: 500px; overflow: hidden">
+                            <img src="{{ asset('storage/' . $post->image)  }}" class="img-fluid mt-3" alt="{{ $post->category->category }}">
+                        </div>
+                        @else
+                            <img src="https://picsum.photos/seed/{{ $post->category->slug }}/500/500" class="card-img-top" alt="{{ $post->category->category }}">
+                        @endif
+
 
                         <div class="card-body">
                             
