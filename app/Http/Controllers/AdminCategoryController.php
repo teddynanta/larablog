@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class AdminCategoryController extends Controller
 {
@@ -27,7 +28,10 @@ class AdminCategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.categories.create', [
+            'title' => 'Dashboard',
+            'categories' => Category::all()
+        ]);
     }
 
     /**
@@ -38,18 +42,15 @@ class AdminCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $slug = Str::of($request['category'])->slug('-');
+        $validatedData = $request->validate([
+            'category' => 'required|max:50',
+        ]);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Category  $category
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Category $category)
-    {
-        //
+        $validatedData['slug'] = $slug;
+
+        Category::create($validatedData);
+        return redirect('/dashboard/categories')->with('success', 'Category created succesfully!');
     }
 
     /**
@@ -60,7 +61,10 @@ class AdminCategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('dashboard.categories.edit', [
+            'title' => 'Dashboard',
+            'category' => $category
+        ]);
     }
 
     /**
@@ -72,7 +76,16 @@ class AdminCategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $slug = Str::of($request['category'])->slug('-');
+        $validatedData = $request->validate([
+            'category' => 'required|max:255',
+        ]);
+
+
+        $validatedData['slug'] = $slug;
+
+        Category::where('id', $category->id)->update($validatedData);
+        return redirect('/dashboard/categories')->with('success', 'Category updated succesfully!');
     }
 
     /**
@@ -83,6 +96,9 @@ class AdminCategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+
+        Category::destroy($category->id);
+
+        return redirect('/dashboard/categories')->with('success', 'Category succesfully deleted!');
     }
 }
