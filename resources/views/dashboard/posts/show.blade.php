@@ -13,7 +13,7 @@
     </form>
     
     @if ($post->image)
-        <div style="max-height: 1200px; overflow: hidden">
+        <div style="max-height:1200px; overflow:hidden">
             <img src="{{ asset('storage/' . $post->image)  }}" class="img-fluid mt-3" alt="{{ $post->category->category }}">
         </div>
     @else

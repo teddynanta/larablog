@@ -59,9 +59,7 @@
                     <div class="card" style="width: 18rem;">
                         <div class="position-absolute px-3 py-1" style="background-color: rgba(0, 0, 0, 0.7)"><a class="text-decoration-none text-white" href="/?category={{ $post->category->slug }}">{{ $post->category->category }}</a></div>
                         @if ($post->image)
-                        <div style="max-height: 500px; overflow: hidden">
                             <img src="{{ asset('storage/' . $post->image)  }}" class="img-fluid mt-3" alt="{{ $post->category->category }}">
-                        </div>
                         @else
                             <img src="https://picsum.photos/seed/{{ $post->category->slug }}/500/500" class="card-img-top" alt="{{ $post->category->category }}">
                         @endif
